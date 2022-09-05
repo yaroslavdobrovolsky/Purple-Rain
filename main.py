@@ -25,8 +25,11 @@ class rain:
         pass
     def fall(self):
         self.y += self.speed
-        if WIND_SPEED != 0:
+        if WIND_SPEED < 0:
             self.x += round(WIND_SPEED-self.speed/10)
+        elif WIND_SPEED > 0:
+            self.x += round(WIND_SPEED+self.speed/10)
+            
         if self.y >= HEIGHT+self.height:
             self.y = random.randint(-200, -100)
             self.x = random.randint(-500,WIDTH+500)
